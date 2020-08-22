@@ -1,8 +1,10 @@
+const siteMetadata = {
+  title: `Coding Notes and Interesting Tidbits`,
+  description: `This is my blog where I post some of my notes and interesting tidbits related to coding.`,
+};
+
 module.exports = {
-  siteMetadata: {
-    title: `Coding Notes and Interesting Tidbits`,
-    description: `This is my blog where I post some of my notes and interesting tidbits related to coding.`,
-  },
+  siteMetadata: siteMetadata,
   plugins: [
     {
       resolve: `gatsby-plugin-mdx`,
@@ -17,5 +19,6 @@ module.exports = {
         name: `posts`,
       },
     },
+    `gatsby-plugin-styled-components`,
   ],
 };

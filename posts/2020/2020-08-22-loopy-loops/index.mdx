@@ -1,0 +1,103 @@
+---
+title: Loopy Looping - Arrays vs Objects
+date: 2020-08-22
+published: true
+---
+
+
+# Looping is About Iterables
+Like most (if not all?) programming languages, Javascript has iterables. These are things that may be looped or iterated over with for-loops, while-loops, .map(), .forEach(), etc. Strings, arrays, and maps are iterables in JS, however, objects are not!  Take, for example, the following:
+
+```js
+let myStr = 'Loopy looping';
+let myArr = ['cat', 'dog', 'tiger', 'parrot'];
+let myObj = { me: 'Jeremy', you: '*insert name*' };
+
+for (let i = 0; i < myStr.length; i++) {
+  console.log(myStr[i]); // L, o, o, p, y, , l, o, o, p, i, n, g
+}
+
+for (let i = 0; i < myArr.length; i++) {
+  console.log(myArr[i]); // cat, dog, tiger, parrot
+}
+
+for (let i = 0; i < myObj.length; i++) {
+  // myObj.length is undefined
+  console.log(myObj[i]); // no output
+}
+```
+
+The for-loops for myStr and myArr work just as we'd expect, however, the for-loop for myObj does nothing. Let's try another way to iterate: for...of.
+
+```js
+for (let char of myStr) {
+  console.log(char); // L, o, o, p, y, , l, o, o, p, i, n, g
+}
+
+for (let animal of myArr) {
+  console.log(animal); // cat, dog, tiger, parrot
+}
+
+for (let key of myObj) {
+  myObj[key]; // myObj is not iterable!
+}
+```
+
+Once again, myStr and myArr work just fine, but myObj cannot be iterated over!  So, what can we do? This is where the for...in iterator comes in!
+
+```js
+for (let key in myObj) {
+  console.log(myObj[key]); // Jeremy, *insert name*
+}
+```
+
+Here, we can take the key for each key-value pair in the object and use it directly back on the object itself to get the value. However, there are a couple alternatives that might be more enticing:
+
+```js
+for (let [key, value] of Object.entries(myObj)) {
+  console.log(key + ': ' + value); // me: Jeremy, you: *insert name*
+}
+```
+
+Awesome, we can now use for...of on our obj and even have full control over both keys and values! But, how does this work?  By calling Object.entries()on myObj, we actually create a new array that contains an array for each property of the myObj object that has the form of [key, value]. In this case, the array that is created is [['me', 'Jeremy], ['you', '*insert name*']].
+Now, I mentioned that were multiple other ways to iterate over the object --albeit not DIRECTLY iterating over the object-- so what is that other way?
+Using maps! Maps are a newer data structure added to JS with ES6. Whereas objects do not maintain the order in which its properties are added, maps do!
+Another interesting feature of maps is that its keys may may use not only primitives but also objects, however, that is a topic for another day.
+So, let's see that map example:
+
+```js
+let myMap = new Map(Object.entries(myObj));
+```
+
+But what does myMap even look like?
+
+```js
+console.log(myMap); // Map { 'me' => 'Jeremy', 'you' => '*insert name*' }
+```
+
+So, console logging a map with show that it is a Map object and show each of its keys 'mapping' to their values. So, when we iterate over the map...
+
+```js
+for (let property of myMap) {
+  console.log(property); // ['me', 'Jeremy], ['you', '*insert name*']
+}
+```
+
+We actually get that map's properties in the form or [key, value]. That's really cool and opens up some different possibilities to basically iterate over a map. However, which way is 'best' is subjective and up to your use-case. There are performance AND memory implications to each, so you should consider this before deciding on one. However, on a small project, this will mostly but up to personal taste.
+
+In summary, strings, arrays, and maps are all iterables in JS while objects are not. However, there are multiple ways to essentially iterate over an object in the form of for...in, for...of in combination with Object.entries(), and even converting the obj to a map.
+
+It is important to note that, while using the for...of syntax is more readable and great syntactic sugar, it actually is much slower than a traditional for-loop. However, if iterating over just a few thousand values, then the performance hit shouldn't be too great. More to the point, if performance is vital, perhaps using a different coding language to iterate over your data would be a better choice than JS!
+
+### EXTRA: using forEach and map on arrays and maps:
+```js
+myMap.forEach((value, key) => console.log(value + ': ' + key)); // Jeremy: me \n *insert name*: you
+
+myArr.forEach((val, index) => console.log(val + ' at index: ' + index)); // cat at index: 0 \n dog at index: 1 ...
+
+myArr.map((val, index) => console.log(val + ' ' + index)); // cat 0 \n dog 1 \n tiger 3
+
+myMap.map((value, key) => console.log(prop)); // myMap has no 'map()' function!
+```
+
+Just like an array, a map can use the forEach method and accepts the optional arguments of value and key IN THE ORDER. However, unlike arrays, maps, ironically, cannot use the map() method. Why? Well, simply because it is not in their prototype. 
