@@ -1,7 +1,8 @@
-import React from 'react';
-import { graphql, Link } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { Layout } from '../components/Layout';
+import React from "react";
+import { graphql, Link } from "gatsby";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import { Layout } from "../components/Layout";
+import styled from "styled-components";
 
 export default ({ data, pageContext }) => {
   const { frontmatter, body } = data.mdx;

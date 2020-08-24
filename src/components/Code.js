@@ -1,9 +1,9 @@
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/nightOwl';
-import React from 'react';
-import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
-import styled from 'styled-components';
-import { copyToClipboard } from '../utils/copy-to-clipboard';
+import Highlight, { defaultProps } from "prism-react-renderer";
+import theme from "prism-react-renderer/themes/nightOwl";
+import React from "react";
+import { LiveEditor, LiveError, LivePreview, LiveProvider } from "react-live";
+import styled from "styled-components";
+import { copyToClipboard } from "../utils/copy-to-clipboard";
 
 const Pre = styled.pre`
   position: relative;
@@ -17,7 +17,7 @@ const Pre = styled.pre`
     line-height: 1.3em;
     height: 1.3em;
   }
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 `;
 
 const LineNo = styled.span`
@@ -36,11 +36,12 @@ const CopyCode = styled.button`
   opacity: 0.3;
   &:hover {
     opacity: 1;
+    cursor: pointer;
   }
 `;
 
 export const Code = ({ codeString, language, ...props }) => {
-  if (props['react-live']) {
+  if (props["react-live"]) {
     return (
       <LiveProvider code={codeString} noInline={true} theme={theme}>
         <LiveEditor />

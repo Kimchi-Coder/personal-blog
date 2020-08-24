@@ -1,18 +1,33 @@
-import { Link } from 'gatsby';
-import React from 'react';
-import styled from 'styled-components';
+import { Link } from "gatsby";
+import React from "react";
+import styled from "styled-components";
 
-const StyledH1 = styled.h1`
+const StyledSiteTitle = styled.div`
   color: rebeccapurple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  margin-top: 25px;
 `;
 
 export const Header = ({ siteTitle, siteDescription }) => {
   return (
     <>
-      <Link to="/">
-        <StyledH1> {siteTitle} </StyledH1>
+      <Link to="/" style={{ textDecoration: "none" }}>
+        <StyledSiteTitle>
+          <div>{siteTitle}</div>
+        </StyledSiteTitle>
       </Link>
-      <p>{siteDescription}</p>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <p>{siteDescription}</p>
+      </div>
     </>
   );
 };
