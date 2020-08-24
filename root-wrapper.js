@@ -18,6 +18,12 @@ const components = {
       );
     }
   },
+  blockquote: (props) => (
+    <blockquote
+      {...props}
+      style={{ borderLeft: '3px solid rebeccapurple', paddingLeft: '20px' }}
+    />
+  ),
 };
 
 export const wrapRootElement = ({ element }) => (
