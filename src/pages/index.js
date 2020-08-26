@@ -9,15 +9,18 @@ const IndexWrapper = styled.main`
 `;
 
 const PostWrapper = styled.div`
-  box-shadow: 3px 3px 10px gray;
+  box-shadow: 3px 3px 10px #222831;
   margin: 15px 0;
   padding: 20px;
   & > a {
     text-decoration: none;
-    color: black;
+    color: #08d9d6;
   }
   & > a:visited {
-    color: black;
+    color: #08d9d6;
+  }
+  & > a > p {
+    color: #f08a5d;
   }
 `;
 
@@ -26,16 +29,18 @@ const StyledPostTitle = styled.div`
   font-family: 'Archivo Black', sans-serif;
   justify-content: center;
   align-items: center;
+  text-align: center;
   font-size: 1.5rem;
+  color: #ff2e63;
   & ::before {
     content: '{';
     margin-right: 10px;
-    color: orange;
+    color: #08d9d6;
   }
   & ::after {
     content: '}';
     margin-left: 10px;
-    color: orange;
+    color: #08d9d6;
   }
 `;
 
@@ -70,7 +75,7 @@ export const query = graphql`
         excerpt(pruneLength: 200)
         frontmatter {
           title
-          date
+          date(formatString: "YYYY MMMM Do")
         }
         fields {
           slug

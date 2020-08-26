@@ -2,22 +2,36 @@ import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import NavBarItem from './NavBarItem';
+import githubIcon from '../assets/github.svg';
+import twitterIcon from '../assets/twitter.svg';
 
 const StyledSiteTitle = styled.div`
-  color: rebeccapurple;
+  color: #ff2e63;
   font-family: 'Archivo Black', sans-serif;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 3rem;
   margin-top: 25px;
+  & ::before {
+    content: '{';
+    margin-right: 10px;
+    color: #08d9d6;
+  }
+  & ::after {
+    content: '}';
+    margin-left: 10px;
+    color: #08d9d6;
+  }
 `;
 
-const StyledUL = styled.ul`
+const StyledNavbar = styled.ul`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 30vw;
+  width: 20vw;
+  padding: 0;
   margin: 0 auto;
   & > li {
     list-style: none;
@@ -40,11 +54,12 @@ export const Header = ({ siteTitle, siteDescription }) => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+          color: '#08d9d6',
         }}
       >
         <p>{siteDescription}</p>
       </div>
-      <StyledUL>
+      <StyledNavbar>
         <NavBarItem
           title="Home Page"
           linkTo="https://www.jeremyhage.dev"
@@ -55,14 +70,14 @@ export const Header = ({ siteTitle, siteDescription }) => {
         <NavBarItem
           title="GitHub"
           linkTo="https://github.com/Kimchi-Coder"
-          icon={null}
+          icon={githubIcon}
         />
         <NavBarItem
           title="Twitter"
           linkTo="https://twitter.com/KimchiCoder"
-          icon={null}
+          icon={twitterIcon}
         />
-      </StyledUL>
+      </StyledNavbar>
     </>
   );
 };

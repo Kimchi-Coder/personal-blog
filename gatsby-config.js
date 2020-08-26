@@ -1,5 +1,5 @@
 const siteMetadata = {
-  title: `{ Between Brackets }`,
+  title: `Between Brackets`,
   description: `A blog of my notes and interesting coding tidbits.`,
 };
 
