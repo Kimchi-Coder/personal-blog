@@ -4,7 +4,7 @@ import { Header } from './Header';
 import styled from 'styled-components';
 
 const AppStyles = styled.main`
-  width: 80vw;
+  width: 60vw;
   margin: 0 auto;
 `;
 

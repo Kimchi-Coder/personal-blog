@@ -1,8 +1,8 @@
-import React from "react";
-import { Layout } from "../components/Layout";
-import { graphql, Link } from "gatsby";
-import styled from "styled-components";
-import "./index.css";
+import React from 'react';
+import { Layout } from '../components/Layout';
+import { graphql, Link } from 'gatsby';
+import styled from 'styled-components';
+import './index.css';
 
 const IndexWrapper = styled.main`
   padding: 5px;
@@ -11,7 +11,7 @@ const IndexWrapper = styled.main`
 const PostWrapper = styled.div`
   box-shadow: 3px 3px 10px gray;
   margin: 15px 0;
-  padding: 10px 15px;
+  padding: 20px;
   & > a {
     text-decoration: none;
     color: black;
@@ -23,17 +23,18 @@ const PostWrapper = styled.div`
 
 const StyledPostTitle = styled.div`
   display: flex;
+  font-family: 'Archivo Black', sans-serif;
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
   & ::before {
-    content: "{";
-    margin-right: 5px;
+    content: '{';
+    margin-right: 10px;
     color: orange;
   }
   & ::after {
-    content: "}";
-    margin-left: 5px;
+    content: '}';
+    margin-left: 10px;
     color: orange;
   }
 `;

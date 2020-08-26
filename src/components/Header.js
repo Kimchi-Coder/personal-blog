@@ -1,10 +1,11 @@
-import { Link } from "gatsby";
-import React from "react";
-import styled from "styled-components";
-import NavBarItem from "./NavBarItem";
+import { Link } from 'gatsby';
+import React from 'react';
+import styled from 'styled-components';
+import NavBarItem from './NavBarItem';
 
 const StyledSiteTitle = styled.div`
   color: rebeccapurple;
+  font-family: 'Archivo Black', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,16 +30,16 @@ const StyledUL = styled.ul`
 export const Header = ({ siteTitle, siteDescription }) => {
   return (
     <>
-      <Link to="/" style={{ textDecoration: "none" }}>
+      <Link to="/" style={{ textDecoration: 'none' }}>
         <StyledSiteTitle>
           <div>{siteTitle}</div>
         </StyledSiteTitle>
       </Link>
       <div
         style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
         <p>{siteDescription}</p>
@@ -49,7 +50,7 @@ export const Header = ({ siteTitle, siteDescription }) => {
           linkTo="https://www.jeremyhage.dev"
           icon={null}
         >
-          {" "}
+          {' '}
         </NavBarItem>
         <NavBarItem
           title="GitHub"
