@@ -21,7 +21,11 @@ const components = {
   blockquote: (props) => (
     <blockquote
       {...props}
-      style={{ borderLeft: '3px solid rebeccapurple', paddingLeft: '20px' }}
+      style={{
+        borderLeft: '3px solid rgb(8, 217, 214)',
+        paddingLeft: '20px',
+        color: 'white',
+      }}
     />
   ),
 };
