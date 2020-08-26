@@ -7,6 +7,9 @@ module.exports = {
   siteMetadata: siteMetadata,
   plugins: [
     {
+      resolve: 'gatsby-plugin-brotli',
+    },
+    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
@@ -20,5 +23,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-react-helmet`,
   ],
 };

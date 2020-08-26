@@ -30,6 +30,9 @@ const LineNo = styled.span`
 const CopyCode = styled.button`
   position: sticky;
   left: 95%;
+  /* position: absolute;
+  right: 0.25rem;
+  top: 0.25rem; */
   border: 0;
   border-radius: 3px;
   margin: 0.25em;

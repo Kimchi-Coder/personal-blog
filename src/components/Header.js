@@ -1,5 +1,6 @@
 import { Link } from 'gatsby';
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import NavBarItem from './NavBarItem';
 import githubIcon from '../assets/github.svg';
@@ -44,6 +45,11 @@ const StyledNavbar = styled.ul`
 export const Header = ({ siteTitle, siteDescription }) => {
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Between Brackets</title>
+        <link rel="canonical" href="localhost:1337" />
+      </Helmet>
       <Link to="/" style={{ textDecoration: 'none' }}>
         <StyledSiteTitle>
           <div>{siteTitle}</div>
