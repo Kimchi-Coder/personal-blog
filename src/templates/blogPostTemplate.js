@@ -11,6 +11,7 @@ export default ({ data, pageContext }) => {
     <Layout>
       <h1>{frontmatter.title}</h1>
       <p>{frontmatter.date}</p>
+      <hr />
       <MDXRenderer>{body}</MDXRenderer>
       {previous === false ? null : (
         <>
