@@ -31,7 +31,7 @@ const StyledNavbar = styled.ul`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 20vw;
+  width: auto;
   padding: 0;
   margin: 0 auto;
   & > li {

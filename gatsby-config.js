@@ -5,6 +5,7 @@ const siteMetadata = {
 
 module.exports = {
   siteMetadata: siteMetadata,
+  pathPrefix: "/personal-blog",
   plugins: [
     {
       resolve: 'gatsby-plugin-brotli',
